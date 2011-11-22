@@ -59,11 +59,16 @@
     <Compile Include="Implementations\NhFetchingProvider.cs" />
     <Compile Include="Implementations\Repository.cs" />
     <Compile Include="IRepository.cs" />
+    <Compile Include="Mapping\CategoryMap.cs" />
+    <Compile Include="Mapping\DomainMapper.cs" />
+    <Compile Include="Mapping\EntityMap.cs" />
+    <Compile Include="Mapping\ProductMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

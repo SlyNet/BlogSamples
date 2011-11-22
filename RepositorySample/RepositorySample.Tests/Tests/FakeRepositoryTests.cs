@@ -14,7 +14,7 @@ namespace RepositorySample.Tests.Tests
         [TestFixtureSetUp]
         public void Setup()
         {
-            //EagerFetch.FetchingProvider = () => new FakeFetchingProvider();
+            EagerFetch.FetchingProvider = () => new FakeFetchingProvider();
         }
 
         [Test]
@@ -41,6 +41,12 @@ namespace RepositorySample.Tests.Tests
             double totalPrice = calculator.GetTotalPrice();
 
             Assert.That(totalPrice, Is.EqualTo(10));
+        }
+
+        [TestFixtureTearDown]
+        public void TearDown()
+        {
+            EagerFetch.FetchingProvider = () => new NhFetchingProvider();
         }
     }
 }
