@@ -5,7 +5,7 @@ using RepositorySample.Domain;
 namespace RepositorySample
 {
     public interface IRepository<T> : ICollection<T>, IQueryable<T>
-        where T : Entity
+        where T: Entity
     {
         T Get(long id);
     }

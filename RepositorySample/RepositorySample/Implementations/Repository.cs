@@ -24,62 +24,27 @@ namespace RepositorySample.Implementations
             this.session = session;
         }
 
-        public T Get(long id)
-        {
-            return this.session.Get<T>(id);
-        }
-
-        #region ICollection
-
-        public IEnumerator<T> GetEnumerator()
-        {
-            return session.Query<T>().GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return session.Query<T>().GetEnumerator();
-        }
-
-        public void Add(T item)
-        {
-            session.SaveOrUpdate(item);
-        }
-
-        public void Clear()
-        {
-            foreach (T entity in this)
-            {
-                session.Delete(entity);
-            }
-        }
-
-        public bool Contains(T item)
-        {
-            return session.Get<T>(item.Id) != null;
-        }
-
-        public void CopyTo(T[] array, int arrayIndex)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Remove(T item)
-        {
-            if (this.Contains(item))
-            {
-                this.session.Delete(item);
-                return true;
-            }
-
-            return false;
-        }
-
         public int Count
         {
             get
             {
-                return session.Query<T>().Count();
+                return this.session.Query<T>().Count();
+            }
+        }
+
+        public Type ElementType
+        {
+            get
+            {
+                return this.session.Query<T>().ElementType;
+            }
+        }
+
+        public Expression Expression
+        {
+            get
+            {
+                return this.session.Query<T>().Expression;
             }
         }
 
@@ -91,34 +56,61 @@ namespace RepositorySample.Implementations
             }
         }
 
-        #endregion ICollection
-
-        #region IQuerable
-
-        public Expression Expression
-        {
-            get
-            {
-                return session.Query<T>().Expression;
-            }
-        }
-
-        public Type ElementType
-        {
-            get
-            {
-                return session.Query<T>().ElementType;
-            }
-        }
-
         public IQueryProvider Provider
         {
             get
             {
-                return session.Query<T>().Provider;
+                return this.session.Query<T>().Provider;
             }
         }
 
-        #endregion
+        public void Add(T item)
+        {
+            this.session.SaveOrUpdate(item);
+        }
+
+        public void Clear()
+        {
+            foreach (T entity in this)
+            {
+                this.session.Delete(entity);
+            }
+        }
+
+        public bool Contains(T item)
+        {
+            return this.session.Get<T>(item.Id) != null;
+        }
+
+        public void CopyTo(T[] array, int arrayIndex)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Remove(T item)
+        {
+            if (Contains(item))
+            {
+                this.session.Delete(item);
+                return true;
+            }
+
+            return false;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.session.Query<T>().GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return this.session.Query<T>().GetEnumerator();
+        }
+
+        public T Get(long id)
+        {
+            return this.session.Get<T>(id);
+        }
     }
 }
