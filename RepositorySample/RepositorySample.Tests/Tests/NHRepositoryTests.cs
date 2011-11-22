@@ -31,7 +31,6 @@ namespace RepositorySample.Tests.Tests
                     ProductsCalculator productsCalculator = new ProductsCalculator(new Repository<Product>(session));
                     var price = productsCalculator.GetTotalPrice();
 
-
                     Assert.That(price, Is.EqualTo(0));
                 }
             }
