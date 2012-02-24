@@ -2,6 +2,7 @@
 using System.Linq;
 using RepositorySample.Domain;
 using RepositorySample.Implementations;
+using RepositorySample.Implementations.Nh;
 
 namespace RepositorySample.CodeUnderTests
 {

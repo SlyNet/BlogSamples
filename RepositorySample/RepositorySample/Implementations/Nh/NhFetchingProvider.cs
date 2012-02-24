@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using NHibernate.Linq;
 
-namespace RepositorySample.Implementations
+namespace RepositorySample.Implementations.Nh
 {
     public class NhFetchingProvider : IFetchingProvider
     {

@@ -7,6 +7,7 @@ using NUnit.Framework;
 using RepositorySample.CodeUnderTests;
 using RepositorySample.Domain;
 using RepositorySample.Implementations;
+using RepositorySample.Implementations.Nh;
 using RepositorySample.Mapping;
 
 namespace RepositorySample.Tests.Tests

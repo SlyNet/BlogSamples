@@ -5,6 +5,7 @@ using RepositorySample.CodeUnderTests;
 using RepositorySample.Domain;
 using System.Linq;
 using RepositorySample.Implementations;
+using RepositorySample.Implementations.Nh;
 
 namespace RepositorySample.Tests.Tests
 {

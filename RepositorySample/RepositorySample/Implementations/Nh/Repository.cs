@@ -7,7 +7,7 @@ using NHibernate;
 using NHibernate.Linq;
 using RepositorySample.Domain;
 
-namespace RepositorySample.Implementations
+namespace RepositorySample.Implementations.Nh
 {
     public class Repository<T> : IRepository<T>
         where T : Entity

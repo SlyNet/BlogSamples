@@ -52,12 +52,12 @@
     <Compile Include="Domain\Category.cs" />
     <Compile Include="Domain\Entity.cs" />
     <Compile Include="Domain\Product.cs" />
-    <Compile Include="Implementations\EagerFetch.cs" />
-    <Compile Include="Implementations\FetchRequest.cs" />
+    <Compile Include="Implementations\Nh\EagerFetch.cs" />
+    <Compile Include="Implementations\Nh\FetchRequest.cs" />
     <Compile Include="Implementations\IFetchingProvider.cs" />
     <Compile Include="Implementations\IFetchRequest.cs" />
-    <Compile Include="Implementations\NhFetchingProvider.cs" />
-    <Compile Include="Implementations\Repository.cs" />
+    <Compile Include="Implementations\Nh\NhFetchingProvider.cs" />
+    <Compile Include="Implementations\Nh\Repository.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Mapping\CategoryMap.cs" />
     <Compile Include="Mapping\DomainMapper.cs" />

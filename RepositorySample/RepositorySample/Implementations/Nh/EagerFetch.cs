@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace RepositorySample.Implementations
+namespace RepositorySample.Implementations.Nh
 {
     public static class EagerFetch
     {

@@ -4,25 +4,25 @@ using System.Linq;
 using System.Linq.Expressions;
 using NHibernate.Linq;
 
-namespace RepositorySample.Implementations
+namespace RepositorySample.Implementations.Nh
 {
     public class FetchRequest<TQueried, TFetch> : IFetchRequest<TQueried, TFetch>
     {
         public IEnumerator<TQueried> GetEnumerator()
         {
-            return NhFetchRequest.GetEnumerator();
+            return this.NhFetchRequest.GetEnumerator();
         }
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
-            return NhFetchRequest.GetEnumerator();
+            return this.NhFetchRequest.GetEnumerator();
         }
 
         public Type ElementType
         {
             get
             {
-                return NhFetchRequest.ElementType;
+                return this.NhFetchRequest.ElementType;
             }
         }
 
@@ -30,7 +30,7 @@ namespace RepositorySample.Implementations
         {
             get
             {
-                return NhFetchRequest.Expression;
+                return this.NhFetchRequest.Expression;
             }
         }
 
@@ -38,13 +38,13 @@ namespace RepositorySample.Implementations
         {
             get
             {
-                return NhFetchRequest.Provider;
+                return this.NhFetchRequest.Provider;
             }
         }
 
         public FetchRequest(INhFetchRequest<TQueried, TFetch> nhFetchRequest)
         {
-            NhFetchRequest = nhFetchRequest;
+            this.NhFetchRequest = nhFetchRequest;
         }
 
         public INhFetchRequest<TQueried, TFetch> NhFetchRequest { get; private set; }
