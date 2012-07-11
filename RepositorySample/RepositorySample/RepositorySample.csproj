@@ -51,6 +51,7 @@
     <Compile Include="CodeUnderTests\ProductsCalculator.cs" />
     <Compile Include="Domain\Category.cs" />
     <Compile Include="Domain\Entity.cs" />
+    <Compile Include="Domain\Price.cs" />
     <Compile Include="Domain\Product.cs" />
     <Compile Include="Implementations\Nh\EagerFetch.cs" />
     <Compile Include="Implementations\Nh\FetchRequest.cs" />

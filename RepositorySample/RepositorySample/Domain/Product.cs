@@ -7,5 +7,7 @@
         public virtual Category Category { get; set; }
 
         public virtual double Price { get; set; }
+
+        public virtual Price FullPrice { get; set; }
     }
 }

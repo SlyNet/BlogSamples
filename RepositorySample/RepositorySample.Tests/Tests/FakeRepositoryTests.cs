@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
-using NHibernate.Linq;
 using NUnit.Framework;
 using RepositorySample.CodeUnderTests;
 using RepositorySample.Domain;
 using System.Linq;
-using RepositorySample.Implementations;
 using RepositorySample.Implementations.Nh;
 
 namespace RepositorySample.Tests.Tests
@@ -26,7 +24,7 @@ namespace RepositorySample.Tests.Tests
             List<Product> products = new List<Product> { product };
 
             IRepository<Product> repository = new FakeRepository<Product>(products);
-            EagerFetchingExtensionMethods.Fetch(repository, x => x.Name);
+            repository.Fetch(x => x.Category);
 
             Assert.That(repository.ToList(), Is.Not.Empty);
         }
@@ -42,6 +40,14 @@ namespace RepositorySample.Tests.Tests
             double totalPrice = calculator.GetTotalPrice();
 
             Assert.That(totalPrice, Is.EqualTo(10));
+        }
+
+        [Test]
+        public void Fetching_Of_nested_sets_Should_work()
+        {
+            IRepository<Category> categories = new FakeRepository<Category>();
+            categories.Where(x => x.Name == "test")
+                .FetchMany(x => x.Products).ThenFetch(x => x.FullPrice);
         }
 
         [TestFixtureTearDown]
